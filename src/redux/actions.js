@@ -8,9 +8,7 @@ export const myAction_2 = {
   myPayload: 'My_payload_value_2',
 };
 
-export const myActionCreator = value => {
-  return {
-    type: 'My_type_action',
-    myPayload: value,
-  };
-};
+export const myActionCreator = value => ({
+  type: 'My_type_action',
+  myPayload: value,
+});
