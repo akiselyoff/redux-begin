@@ -1,13 +1,14 @@
 import { createStore } from 'redux';
 
-const initialState = { counterValue: 0 }; //replace state in Counter
+const initialState = { counterValue: 10, x: 25 }; //replace state in Counter
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case 'counter/Increment':
-      return { counterValue: state.counterValue + 1 }; //replace handleIncrement in Counter
+      return { counterValue: state.counterValue + payload }; //replace handleIncrement in Counter
+
     case 'counter/Decrement':
-      return { counterValue: state.counterValue - 1 }; //replace handleDecrement in Counter
+      return { counterValue: state.counterValue - payload }; //replace handleDecrement in Counter
     default:
       return state;
   }
