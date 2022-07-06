@@ -1,14 +1,31 @@
 import { createStore } from 'redux';
 
-const initialState = { counterValue: 10, x: 25 }; //replace state in Counter
+const initialState = {
+  counter: {
+    value: 10,
+    step: 5,
+  },
+}; //для стейта со вложенностями перепишем reducer, что бы распылять предыдущее значение, которое не хотим менять
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'counter/Increment':
-      return { counterValue: state.counterValue + payload }; //replace handleIncrement in Counter
-
+      return {
+        //вариант для влоеженного стейта выше.
+        ...state,
+        counter: {
+          ...state.counter,
+          value: state.counter.value + payload,
+        },
+      };
     case 'counter/Decrement':
-      return { counterValue: state.counterValue - payload }; //replace handleDecrement in Counter
+      return {
+        ...state,
+        counter: {
+          ...state.counter,
+          value: state.counter.value - payload,
+        },
+      };
     default:
       return state;
   }

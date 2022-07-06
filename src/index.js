@@ -7,8 +7,6 @@ import store from './redux/store';
 
 import './index.css';
 
-console.log(store.getState());
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
