@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../redux/actions';
+import * as actions from '../redux/counter/counter-actions';
 import Controls from './Controls';
 import Value from './Value';
 import './Counter.css';
@@ -26,6 +26,7 @@ const mapStateToProps = state => {
     step: state.counter.step,
   };
 };
+
 //делает map redux dispatch и записывает объект методов как пропсы в  компонент Counter
 const mapDispatchToProps = dispatch => {
   return {

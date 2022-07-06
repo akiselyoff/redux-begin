@@ -1,36 +1,35 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import counterReducer from './counter/counter-reducer';
 
-const initialState = {
-  counter: {
-    value: 10,
-    step: 5,
-  },
-}; //для стейта со вложенностями перепишем reducer, что бы распылять предыдущее значение, которое не хотим менять
+const rootReducer = combineReducers({
+  counter: counterReducer,
+});
 
-const reducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case 'counter/Increment':
-      return {
-        //вариант для влоеженного стейта выше.
-        ...state,
-        counter: {
-          ...state.counter,
-          value: state.counter.value + payload,
-        },
-      };
-    case 'counter/Decrement':
-      return {
-        ...state,
-        counter: {
-          ...state.counter,
-          value: state.counter.value - payload,
-        },
-      };
-    default:
-      return state;
-  }
-};
-
-const store = createStore(reducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;
+
+// const counterReducer = (state = counterInitialState, { type, payload }) => {
+//   switch (type) {
+//     case 'counter/Increment':
+//       return {
+//         //вариант для влоеженного стейта выше.
+//         ...state,
+//         counter: {
+//           ...state.counter,
+//           value: state.counter.value + payload,
+//         },
+//       };
+//     case 'counter/Decrement':
+//       return {
+//         ...state,
+//         counter: {
+//           ...state.counter,
+//           value: state.counter.value - payload,
+//         },
+//       };
+//     default:
+//       return state;
+//   }
+// };
