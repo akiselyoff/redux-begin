@@ -2,15 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { App } from 'components/App';
-import store from './redux/store';
-import { myAction, myAction_2, myActionCreator } from './redux/actions';
-import './index.css';
+// import store from './redux/store';
 
-console.log(store);
-console.log(store.getState());
-store.dispatch(myAction);
-store.dispatch(myAction_2);
-store.dispatch(myActionCreator(5));
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

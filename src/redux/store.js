@@ -1,8 +1,16 @@
 import { createStore } from 'redux';
 
-const reducer = (state = { a: 5 }, action) => {
-  console.log('Log action in reducer: ', action);
-  return state;
+const initialState = { counterValue: 0 }; //replace state in Counter
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'counter/Increment':
+      return { counterValue: state.counterValue + 1 }; //replace handleIncrement in Counter
+    case 'counter/Decrement':
+      return { counterValue: state.counterValue - 1 }; //replace handleDecrement in Counter
+    default:
+      return state;
+  }
 };
 
 const store = createStore(reducer);

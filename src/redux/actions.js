@@ -1,14 +1,9 @@
-export const myAction = {
-  type: 'My_type_action',
-  myPayload: 'My_payload_value',
-};
+export const increment = value => ({
+  type: 'counter/Increment',
+  payload: value,
+});
 
-export const myAction_2 = {
-  type: 'My_type_action_2',
-  myPayload: 'My_payload_value_2',
-};
-
-export const myActionCreator = value => ({
-  type: 'My_type_action',
-  myPayload: value,
+export const decrement = value => ({
+  type: 'counter/Decrement',
+  payload: value,
 });
