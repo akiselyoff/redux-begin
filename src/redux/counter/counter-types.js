@@ -1,4 +1,5 @@
 const INCREMENT = 'counter/Increment';
 const DECREMENT = 'counter/Decrement';
 
-export default { INCREMENT, DECREMENT };
+const actionTypes = { INCREMENT, DECREMENT };
+export default actionTypes;
